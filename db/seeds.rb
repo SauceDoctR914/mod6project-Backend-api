@@ -18,3 +18,17 @@ newestUser.email = "newestUser@admin.com"
 newestUser.password_confirmation = 'banana'
 newestUser.admin = false
 newestUser.save
+
+newNotebook = Notebook.new
+newNotebook.title = "first book"
+newNotebook.user_id = 1
+newNotebook.save
+
+newNote = Note.new
+newNote.title = "newNote"
+newNote.description = "I hope that this works"
+newNote.content = "this note is to demonstrate that the note taking interface is working correctly"
+newNote.created = "Today"
+newNote.notebook_id = 1
+newNote.user_id = 1
+newNote.save

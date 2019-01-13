@@ -4,8 +4,9 @@ class CreateNotes < ActiveRecord::Migration[5.2]
       t.string :title
       t.text :description
       t.text :content
-      t.date :created
+      t.text :created
       t.references :notebook
+      t.references :user
       t.timestamps
     end
   end

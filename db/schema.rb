@@ -27,11 +27,13 @@ ActiveRecord::Schema.define(version: 2018_12_12_181718) do
     t.string "title"
     t.text "description"
     t.text "content"
-    t.date "created"
+    t.text "created"
     t.bigint "notebook_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["notebook_id"], name: "index_notes_on_notebook_id"
+    t.index ["user_id"], name: "index_notes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

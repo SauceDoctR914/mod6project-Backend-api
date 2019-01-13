@@ -1,8 +1,10 @@
-class Api::V1::NoteBooksController < ApplicationController
+class Api::V1::NotebooksController < ApplicationController
 before_action :authenticate_user
 before_action :set_notebook, only: [:show, :update, :destroy]
 
+
 def index
+  # debugger
   if current_user
     @notebooks = Notebook.all
     render json: @notebooks
@@ -15,6 +17,7 @@ end
 
 def create
   @notebook = Notebook.new(notebook_params)
+    @notebook.user_id = current_user.id
   if @notebook.save
     render json: @notebook, status: :created, location: @notebook
   else
@@ -39,7 +42,7 @@ private
     @notebook = Notebook.find(params[:id])
   end
 
-  def banana_params
-    params.require(:banana).permit(:name, :location)
+  def notebook_params
+    params.require(:notebook).permit(:title, :user_id)
   end
 end
