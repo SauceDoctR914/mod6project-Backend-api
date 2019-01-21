@@ -19,7 +19,7 @@ def create
   @notebook = Notebook.new(notebook_params)
     @notebook.user_id = current_user.id
   if @notebook.save
-    render json: @notebook, status: :created, location: @notebook
+    render json: @notebook, status: :created, location: api_v1_notebook_url(@notebook)
   else
     render json: @notebook.errors, status: :unprocessable_entity
   end

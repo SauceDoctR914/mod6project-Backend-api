@@ -42,7 +42,7 @@ def set_note
 end
 
   def note_params
-    params.permit(:note).permit(:title, :description, :content, :created, :notebook_id, :user_id )
+    params.require(:note).permit(:title, :description, :content, :created, :notebook_id, :user_id )
   end
 
 end
