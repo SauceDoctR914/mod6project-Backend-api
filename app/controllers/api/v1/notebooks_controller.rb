@@ -17,7 +17,7 @@ end
 
 def create
   @notebook = Notebook.new(notebook_params)
-    @notebook.user_id = current_user.id
+    @notebook.user_id = current_user.idx
   if @notebook.save
     render json: @notebook, status: :created, location: api_v1_notebook_url(@notebook)
   else
