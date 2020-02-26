@@ -2,6 +2,7 @@ class Api::V1::UsersController < ApplicationController
   before_action :authenticate_user,  only: [:index, :current, :update]
      before_action :authorize_as_admin, only: [:destroy]
      before_action :authorize,          only: [:update]
+     before_action :set_user,           only: [:show]
    def index
      @users = User.all
      render json: @users
@@ -19,6 +20,7 @@ class Api::V1::UsersController < ApplicationController
       render json: @user.errors, status: :unprocessable_entity
     end
   end
+
   # def create
   #   @user = User.create(user_params)
   #   if @user.valid?

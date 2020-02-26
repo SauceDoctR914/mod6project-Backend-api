@@ -4,7 +4,6 @@ before_action :set_notebook, only: [:show, :update, :destroy]
 
 
 def index
-  #debugger
   if current_user
     @notebooks = Notebook.all
     render json: @notebooks
